@@ -5,7 +5,8 @@ import { CommandInfo } from "../../lib/commands/CommandInfo";
 import { CommandExecutor } from "../../lib/commands/CommandExecutor";
 
 @Command({
-  name: "cc",
+  name: "clearchat",
+  aliases: ["cc"],
   category: "Miscellaneous", // Specify which category this command belongs to (Optional)
   usage: "<amount: number (1-100)>",
   description: "Xoá chat trong kênh hiện tại.", // A short description about your command (Optional)
@@ -22,7 +23,7 @@ default class implements CommandExecutor {
 
     if (!args[0]) {
       embed.setTitle("Lỗi");
-      embed.setDescription([`Thêm số lượng tin nhắn cần xóa. \n Sử dụng: \`cc <amount>\``]);
+      embed.setDescription([`Thêm số lượng tin nhắn cần xóa. \n Sử dụng: \`.clearchat <amount>\``]);
       // message.channel.send(`Thêm số lượng tin nhắn cần xóa: cc <amount>`);
       message.channel.send(embed)
       return true;
@@ -36,7 +37,7 @@ default class implements CommandExecutor {
       .bulkDelete(fetched)
       .catch((err) => message.channel.send(`Error: ${err}`));
     embed.setTitle("Clear Successfully");
-    embed.setDescription([`${amount} tin nhắn đã bị xóa.`]);
+    embed.setDescription([`✅ ${amount} tin nhắn đã bị xóa.`]);
     message.channel.send(embed)
     return true;
   };

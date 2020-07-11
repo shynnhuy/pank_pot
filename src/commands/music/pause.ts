@@ -4,7 +4,7 @@ import { Message, MessageEmbed } from 'discord.js';
 
 @Command({
     name: 'pause',
-    description: 'Busy and don\'t want to miss a music? Pause it! I\'ll wait till you come back!',
+    description: 'Tạm dừng phát nhạc.',
     category: 'Music',
 })
 default class implements CommandExecutor {
@@ -26,7 +26,7 @@ default class implements CommandExecutor {
             .setColor('RANDOM')
             .setTitle('Successfully Paused')
             .setThumbnail(current.thumbnail)
-            .setDescription(`⏸️ [${current.title}](${current.url}) has been paused\n${durationBar}`)
+            .setDescription(`⏸️ [${current.title}](${current.url}) đã dừng\n${durationBar}`)
             .setFooter(`Requested by ${message.author.tag}`)
             .setTimestamp()
 

@@ -6,7 +6,7 @@ import { CommandExecutor } from '../../lib/commands/CommandExecutor';
     name: 'loop',
     category: 'Music',
     usage: '<type:string (song/queue)> <loop:boolean>',
-    description: 'Like a music? Loop it till you are tired of it! Or maybe you want the whole queue to loop?'
+    description: 'Phát lại bài hát.'
 })
 default class implements CommandExecutor {
 

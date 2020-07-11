@@ -9,11 +9,8 @@ import { CommandExecutor } from '../../lib/commands/CommandExecutor';
     category: 'Music',
     usage: '[userCount:boolean]',
     description: [
-        'Don\'t like the current music? Skip it! No-one enjoys horrible musics! Requires votes if user is not admin!',
-        'The second argument is used to set whether or not to use the number of users in the voice channel to skip a music',
-        'Note: same user cannot vote more than once.'
+        'Bỏ qua bài hát.'
     ].join('\n\n'),
-    permissions: ['ADMINISTRATOR'],
     overrideDefaultPermCheck: true
 })
 default class implements CommandExecutor {

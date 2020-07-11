@@ -7,7 +7,7 @@ import { CommandExecutor } from '../../lib/commands/CommandExecutor';
     aliases: ['vol'],
     category: 'Music',
     usage: '[volume:number (0-100)]',
-    description: 'The volume is too loud? Or is it too quiet? Change it using this command! Alternatively, view the current volume!'
+    description: 'Xem hoặc thay đổi âm lượng.'
 })
 default class implements CommandExecutor {
 
@@ -22,7 +22,7 @@ default class implements CommandExecutor {
 
         if (!args[0]) {
             volumeEmoji = queue.volume > 50 ? '🔊' : (queue.volume <= 0 ? '🔈' : '🔉');
-            message.channel.send(`${volumeEmoji} Current Volume: **${queue.volume}/100**`);
+            message.channel.send(`${volumeEmoji} Âm lượng hiện tại: **${queue.volume}/100**`);
             return true;
         }
 
@@ -33,7 +33,7 @@ default class implements CommandExecutor {
         queue.connection?.dispatcher.setVolumeLogarithmic(volume / 100);
 
         volumeEmoji = queue.volume > 50 ? '🔊' : (queue.volume <= 0 ? '🔈' : '🔉');
-        message.channel.send(`${volumeEmoji} Volume has now been set to **${queue.volume}/100**`);
+        message.channel.send(`${volumeEmoji} Âm lượng được chỉnh thành **${queue.volume}/100**`);
 
         return true;
 

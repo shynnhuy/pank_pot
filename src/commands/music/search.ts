@@ -6,7 +6,7 @@ import { CommandExecutor } from '../../lib/commands/CommandExecutor';
 
 @Command({
     name: 'search',
-    description: 'Bored? How about playing some music from youtube? Be sure to be in a voice channel before running this command!',
+    description: 'Tìm bài hát từ youtube.',
     category: 'Music',
     usage: '<URL:string | query:string>'
 })

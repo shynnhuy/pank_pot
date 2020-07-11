@@ -57,8 +57,6 @@ default class implements CommandExecutor {
 
             if (uncategorised!) embed.addField(uncategorised!.info, uncategorised!.commands);
 
-            embed.addField(`Developed by`, `\`${message.author.tag}\``)
-
             message.channel.send(embed);
             return true;
 

@@ -9,13 +9,13 @@ default class implements EventListener {
 
         client.user?.setPresence({
             activity: {
-                name: 'Gái :))',
+                name: 'Gái :)) [.help]',
                 type: 'PLAYING'
             },
             status: "online"
         });
 
-        console.log(`${client.user!.tag} is now ready to be commanded.`);
+        console.log(`${client.user!.tag} is now ready to be commanded !!!.`);
 
     }
 
