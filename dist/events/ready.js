@@ -23,12 +23,12 @@ let default_1 = class {
             var _a;
             (_a = index_1.client.user) === null || _a === void 0 ? void 0 : _a.setPresence({
                 activity: {
-                    name: 'Gái :))',
+                    name: 'Gái :)) [.help]',
                     type: 'PLAYING'
                 },
                 status: "online"
             });
-            console.log(`${index_1.client.user.tag} is now ready to be commanded.`);
+            console.log(`${index_1.client.user.tag} is now ready to be commanded !!!.`);
         });
     }
 };

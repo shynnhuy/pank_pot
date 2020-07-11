@@ -50,7 +50,7 @@ let default_1 = class {
             upcomingVid = upcoming[0] ? `[${index_1.client.$utils.truncateStr(upcoming[0].title, 20)}](${upcoming[0].url})` : 'None';
             upcomingVid = current.loop ? `[${index_1.client.$utils.truncateStr(current.title, 20)}](${current.url})` : upcomingVid;
             embed.setDescription(`[${title}](${url})\n${durationBar}`);
-            embed.spliceFields(0, 6, { name: 'Duration:', value: index_1.client.$utils.formatSeconds(duration), inline: true }, { name: 'Remaining Time:', value: timeRemaining, inline: true }, { name: 'Looping:', value: String(loop)[0].toUpperCase() + String(loop).substring(1), inline: true }, { name: 'Requested By:', value: requester.user.tag, inline: true }, { name: 'Uploaded By:', value: `[${author}](${authorUrl})`, inline: true }, { name: 'Up Next:', value: upcomingVid, inline: true });
+            embed.spliceFields(0, 6, { name: 'Thời lượng:', value: index_1.client.$utils.formatSeconds(duration), inline: true }, { name: 'Còn lại:', value: timeRemaining, inline: true }, { name: 'Lặp:', value: String(loop)[0].toUpperCase() + String(loop).substring(1), inline: true }, { name: 'Requested By:', value: requester.user.tag, inline: true }, { name: 'Uploaded By:', value: `[${author}](${authorUrl})`, inline: true }, { name: 'Tiếp theo:', value: upcomingVid, inline: true });
         });
     }
 };
@@ -58,7 +58,7 @@ default_1 = __decorate([
     Command_1.Command({
         name: 'nowplaying',
         aliases: ['np', 'now_playing', 'current', 'currentlyplaying', 'currently_playing'],
-        description: 'View the currently playing music with a fancy duration bar',
+        description: 'Xem bài hát đang phát.',
         category: 'Music'
     })
 ], default_1);

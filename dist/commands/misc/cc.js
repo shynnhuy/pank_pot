@@ -28,7 +28,7 @@ let default_1 = class {
             message.delete();
             if (!args[0]) {
                 embed.setTitle("Lỗi");
-                embed.setDescription([`Thêm số lượng tin nhắn cần xóa. \n Sử dụng: \`cc <amount>\``]);
+                embed.setDescription([`Thêm số lượng tin nhắn cần xóa. \n Sử dụng: \`.clearchat <amount>\``]);
                 // message.channel.send(`Thêm số lượng tin nhắn cần xóa: cc <amount>`);
                 message.channel.send(embed);
                 return true;
@@ -41,7 +41,7 @@ let default_1 = class {
                 .bulkDelete(fetched)
                 .catch((err) => message.channel.send(`Error: ${err}`));
             embed.setTitle("Clear Successfully");
-            embed.setDescription([`${amount} tin nhắn đã bị xóa.`]);
+            embed.setDescription([`✅ ${amount} tin nhắn đã bị xóa.`]);
             message.channel.send(embed);
             return true;
         });
@@ -49,7 +49,8 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: "cc",
+        name: "clearchat",
+        aliases: ["cc"],
         category: "Miscellaneous",
         usage: "<amount: number (1-100)>",
         description: "Xoá chat trong kênh hiện tại.",

@@ -28,7 +28,7 @@ let default_1 = class {
             let volumeEmoji;
             if (!args[0]) {
                 volumeEmoji = queue.volume > 50 ? '🔊' : (queue.volume <= 0 ? '🔈' : '🔉');
-                message.channel.send(`${volumeEmoji} Current Volume: **${queue.volume}/100**`);
+                message.channel.send(`${volumeEmoji} Âm lượng hiện tại: **${queue.volume}/100**`);
                 return true;
             }
             const volume = parseFloat(parseFloat(args[0]).toFixed(2));
@@ -37,7 +37,7 @@ let default_1 = class {
             queue.volume = volume;
             (_a = queue.connection) === null || _a === void 0 ? void 0 : _a.dispatcher.setVolumeLogarithmic(volume / 100);
             volumeEmoji = queue.volume > 50 ? '🔊' : (queue.volume <= 0 ? '🔈' : '🔉');
-            message.channel.send(`${volumeEmoji} Volume has now been set to **${queue.volume}/100**`);
+            message.channel.send(`${volumeEmoji} Âm lượng được chỉnh thành **${queue.volume}/100**`);
             return true;
         });
     }
@@ -48,6 +48,6 @@ default_1 = __decorate([
         aliases: ['vol'],
         category: 'Music',
         usage: '[volume:number (0-100)]',
-        description: 'The volume is too loud? Or is it too quiet? Change it using this command! Alternatively, view the current volume!'
+        description: 'Xem hoặc thay đổi âm lượng.'
     })
 ], default_1);

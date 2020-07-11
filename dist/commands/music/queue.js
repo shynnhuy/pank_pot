@@ -98,8 +98,7 @@ default_1 = __decorate([
     Command_1.Command({
         name: 'queue',
         aliases: ['q', 'list'],
-        description: 'Excited about the next music? View a list of songs in the queue to be even more excited...' +
-            'or disappointed by someone\'s poor taste in music!',
+        description: 'Xem toàn bộ danh sách phát.',
         category: 'Music'
     })
 ], default_1);

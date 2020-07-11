@@ -30,11 +30,11 @@ let default_1 = class {
                     return false;
                 const video = queue.upcoming[index];
                 queue.upcoming.splice(index, 1);
-                message.channel.send(`🗑️ **${video.title}** has been removed from the queue!`);
+                message.channel.send(`🗑️ **${video.title}** đã bị xóa!`);
                 return true;
             }
             queue.upcoming = [];
-            message.channel.send('🗑️ The queue has been cleared! Add more songs or the playback will end after the current song!');
+            message.channel.send('🗑️ Đã xóa sạch danh sách phát!');
             return true;
         });
     }
@@ -45,6 +45,6 @@ default_1 = __decorate([
         aliases: ['clearqueue'],
         category: 'Music',
         usage: '[index:number]',
-        description: 'Accidentally added a playlist or music? Clear the queue completely or remove a music at a specific index!'
+        description: 'Xóa một hoặc toàn bộ bài hát trong danh sách phát.'
     })
 ], default_1);

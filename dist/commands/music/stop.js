@@ -40,7 +40,6 @@ default_1 = __decorate([
         name: 'stop',
         aliases: ['end', 'leave'],
         category: 'Music',
-        description: 'Tired of musics? I don\'t think anyone would ever say that! But if you truly are then ' +
-            'stop the music playback using this command!'
+        description: 'Dừng bài hát.'
     })
 ], default_1);

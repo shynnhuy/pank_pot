@@ -34,7 +34,7 @@ let default_1 = class {
                 .setColor('RANDOM')
                 .setTitle('Successfully Paused')
                 .setThumbnail(current.thumbnail)
-                .setDescription(`⏸️ [${current.title}](${current.url}) has been paused\n${durationBar}`)
+                .setDescription(`⏸️ [${current.title}](${current.url}) đã dừng\n${durationBar}`)
                 .setFooter(`Requested by ${message.author.tag}`)
                 .setTimestamp();
             message.channel.send(embed);
@@ -45,7 +45,7 @@ let default_1 = class {
 default_1 = __decorate([
     Command_1.Command({
         name: 'pause',
-        description: 'Busy and don\'t want to miss a music? Pause it! I\'ll wait till you come back!',
+        description: 'Tạm dừng phát nhạc.',
         category: 'Music',
     })
 ], default_1);
