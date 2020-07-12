@@ -9,7 +9,7 @@ import settings from "../../settings";
   category: "Pảnk Commands",
   description: "Xem prefix của Pảnk.",
 })
-class implements CommandExecutor {
+default class implements CommandExecutor {
   execute = async (message: Message, args: string[]): Promise<boolean> => {
     // const keyv = new Keyv();
     // keyv.set('prefix', ".");
