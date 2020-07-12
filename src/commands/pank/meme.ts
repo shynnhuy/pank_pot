@@ -6,9 +6,9 @@ import { CommandExecutor } from "../../lib/commands/CommandExecutor";
 @Command({
   name: "meme",
   aliases: ["mm"],
-  category: "Pảnk Roleplay",
+  category: "Pảnk Commands",
   usage: "[subreddit: string]",
-  description: "1 chiếc meme nhè nhẹ.\nSử dụng các subreddit: Ví dụ \`meme\`, \`animemes\`, \`dankmeme\`, \`wholesomememes\`, \`...\`", // A short description about your command (Optional)
+  description: "1 chiếc meme nhè nhẹ.\nSử dụng các subreddit để chọn meme.\nVí dụ: \`meme\`, \`animemes\`, \`dankmeme\`, \`wholesomememes\`, \`...\`", // A short description about your command (Optional)
 })
 default class implements CommandExecutor {
   execute = async (message: Message, args: string[]): Promise<boolean> => {

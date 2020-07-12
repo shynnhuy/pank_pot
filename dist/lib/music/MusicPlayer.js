@@ -67,7 +67,7 @@ class MusicPlayer {
         }
         if (!playlist && queue.upcoming.length > 0) {
             const addedVideoIndex = queue.upcoming.indexOf(music);
-            const position = addedVideoIndex == 0 ? 'Up Next' : addedVideoIndex + 1;
+            const position = addedVideoIndex == 0 ? 'Tiếp theo' : addedVideoIndex + 1;
             this.embed
                 .setColor('RANDOM')
                 .setTitle('Đã thêm bài hát vào danh sách phát')

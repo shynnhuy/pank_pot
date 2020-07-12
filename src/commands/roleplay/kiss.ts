@@ -4,10 +4,10 @@ import { CommandExecutor } from "../../lib/commands/CommandExecutor";
 import giphy from '../../giphy';
 
 @Command({
-  name: "kick",
+  name: "kiss",
   category: "Pảnk Roleplay",
   usage: "[@user]",
-  description: "Sút vỡ cmn mồm.",
+  description: "Hun nhẹ <3.",
 })
 default class implements CommandExecutor {
   execute = async (message: Message, args: string[]): Promise<boolean> => {
@@ -17,19 +17,19 @@ default class implements CommandExecutor {
       .setTimestamp();
 
     const fetched = await giphy.search({
-      q: "knockout kick",
+      q: "kissing",
       rating: "g",
     });
     embed.setImage(fetched.data[Math.floor(Math.random() * fetched.data.length - 1)].images.original.url);
     if (!message.mentions.users.first()) {
-      embed.setTitle(`${message.author.username} sút.`);
+      embed.setTitle(`${message.author.username} hun hun.`);
       message.channel.send(embed);
       return true;
     }
 
     const taggedUser = message.mentions.users.first();
     embed.setTitle(
-      `${message.author.username} sút vào mõm ${taggedUser?.username}.`
+      `${message.author.username} hun ${taggedUser?.username} thắm thiết.`
     );
     message.channel.send(embed);
 

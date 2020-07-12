@@ -63,7 +63,7 @@ let default_1 = class {
             const categories = [
                 ...new Set(index_1.client.$commands.map((command) => command.info.category)),
             ];
-            embed.setTitle("-= COMMAND LIST =-");
+            embed.setTitle("-= :7190_linkpepehype: PẢNK COMMAND LIST :7190_linkpepehype: =-");
             embed.setDescription([
                 `**Prefixes:** ${prefixes
                     .map((prefix) => `\`${prefix}\``)

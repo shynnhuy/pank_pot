@@ -29,17 +29,17 @@ let default_1 = class {
                 .setFooter(`Requested by ${message.author.tag}`)
                 .setTimestamp();
             const fetched = yield giphy_1.default.search({
-                q: "knockout kick",
+                q: "kissing",
                 rating: "g",
             });
             embed.setImage(fetched.data[Math.floor(Math.random() * fetched.data.length - 1)].images.original.url);
             if (!message.mentions.users.first()) {
-                embed.setTitle(`${message.author.username} sút.`);
+                embed.setTitle(`${message.author.username} hun hun.`);
                 message.channel.send(embed);
                 return true;
             }
             const taggedUser = message.mentions.users.first();
-            embed.setTitle(`${message.author.username} sút vào mõm ${taggedUser === null || taggedUser === void 0 ? void 0 : taggedUser.username}.`);
+            embed.setTitle(`${message.author.username} hun ${taggedUser === null || taggedUser === void 0 ? void 0 : taggedUser.username} thắm thiết.`);
             message.channel.send(embed);
             return true;
         });
@@ -47,9 +47,9 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: "kick",
+        name: "kiss",
         category: "Pảnk Roleplay",
         usage: "[@user]",
-        description: "Sút vỡ cmn mồm.",
+        description: "Hun nhẹ <3.",
     })
 ], default_1);

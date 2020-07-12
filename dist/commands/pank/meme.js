@@ -67,8 +67,8 @@ default_1 = __decorate([
     Command_1.Command({
         name: "meme",
         aliases: ["mm"],
-        category: "Pảnk Roleplay",
+        category: "Pảnk Commands",
         usage: "[subreddit: string]",
-        description: "1 chiếc meme nhè nhẹ.\nSử dụng các subreddit: Ví dụ \`meme\`, \`animemes\`, \`dankmeme\`, \`wholesomememes\`, \`...\`",
+        description: "1 chiếc meme nhè nhẹ.\nSử dụng các subreddit để chọn meme.\nVí dụ: \`meme\`, \`animemes\`, \`dankmeme\`, \`wholesomememes\`, \`...\`",
     })
 ], default_1);
