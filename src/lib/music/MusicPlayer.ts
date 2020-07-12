@@ -66,10 +66,10 @@ export class MusicPlayer {
 
             this.embed
                 .setColor('RANDOM')
-                .setTitle('Added Video to Queue')
+                .setTitle('Đã thêm bài hát vào danh sách phát')
                 .setDescription(`\`\`\`${music.title}\`\`\``)
                 .setThumbnail(music.thumbnail)
-                .addField('Position:', position, true)
+                .addField('Vị trí:', position, true)
                 .addField('Requested By:', music.requester.user.tag, true)
                 .setTimestamp();
 
@@ -120,7 +120,7 @@ export class MusicPlayer {
 
                 item.embed.setTitle('Was Playing:');
                 item.embed.setDescription(durationBar);
-                item.embed.spliceFields(1, 1, { name: 'Remaining Time:', value: 'Ended', inline: true });
+                item.embed.spliceFields(1, 1, { name: 'Còn lại:', value: 'Ended', inline: true });
 
                 item.message.edit(item.embed);
             }
@@ -141,10 +141,10 @@ export class MusicPlayer {
 
         this.embed
             .setColor('RANDOM')
-            .setTitle('Now Playing:')
+            .setTitle('Đang phát:')
             .setDescription(`[${queue.current.title}](${queue.current.url})`)
             .setThumbnail(queue.current.thumbnail)
-            .addField('Duration:', `${client.$utils.formatSeconds(queue.current.duration)}`, true)
+            .addField('Thời lượng:', `${client.$utils.formatSeconds(queue.current.duration)}`, true)
             .addField('Requested By:', queue.current.requester.user.tag, true)
             .setTimestamp();
 

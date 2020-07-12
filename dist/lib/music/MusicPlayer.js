@@ -70,10 +70,10 @@ class MusicPlayer {
             const position = addedVideoIndex == 0 ? 'Up Next' : addedVideoIndex + 1;
             this.embed
                 .setColor('RANDOM')
-                .setTitle('Added Video to Queue')
+                .setTitle('Đã thêm bài hát vào danh sách phát')
                 .setDescription(`\`\`\`${music.title}\`\`\``)
                 .setThumbnail(music.thumbnail)
-                .addField('Position:', position, true)
+                .addField('Vị trí:', position, true)
                 .addField('Requested By:', music.requester.user.tag, true)
                 .setTimestamp();
             textChannel.send(this.embed);
@@ -115,7 +115,7 @@ class MusicPlayer {
                 const durationBar = this.durationBar(queue, true);
                 item.embed.setTitle('Was Playing:');
                 item.embed.setDescription(durationBar);
-                item.embed.spliceFields(1, 1, { name: 'Remaining Time:', value: 'Ended', inline: true });
+                item.embed.spliceFields(1, 1, { name: 'Còn lại:', value: 'Ended', inline: true });
                 item.message.edit(item.embed);
             }
             if (!((_a = queue.current) === null || _a === void 0 ? void 0 : _a.loop)) {
@@ -131,10 +131,10 @@ class MusicPlayer {
         dispatcher === null || dispatcher === void 0 ? void 0 : dispatcher.setVolumeLogarithmic(queue.volume / 100);
         this.embed
             .setColor('RANDOM')
-            .setTitle('Now Playing:')
+            .setTitle('Đang phát:')
             .setDescription(`[${queue.current.title}](${queue.current.url})`)
             .setThumbnail(queue.current.thumbnail)
-            .addField('Duration:', `${__1.client.$utils.formatSeconds(queue.current.duration)}`, true)
+            .addField('Thời lượng:', `${__1.client.$utils.formatSeconds(queue.current.duration)}`, true)
             .addField('Requested By:', queue.current.requester.user.tag, true)
             .setTimestamp();
         (_e = queue.textChannel) === null || _e === void 0 ? void 0 : _e.send(this.embed);

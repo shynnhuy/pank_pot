@@ -30,19 +30,28 @@ let default_1 = class {
             const voiceChannel = message.member.voice.channel;
             if (regex.url.test(args[0])) {
                 if (regex.youtubeVideo.test(args[0])) {
-                    const status = yield index_1.client.$youtube.getVideo(args[0])
+                    const status = yield index_1.client.$youtube
+                        .getVideo(args[0])
                         .then((video) => __awaiter(this, void 0, void 0, function* () {
                         const music = yield player.setMusicInfo(video, member);
-                        player.addToQueue({ music, textChannel, voiceChannel, playlist: false });
+                        player.addToQueue({
+                            music,
+                            textChannel,
+                            voiceChannel,
+                            playlist: false,
+                        });
                         return true;
                     }))
-                        .catch(() => { return false; });
+                        .catch(() => {
+                        return false;
+                    });
                     return status;
                 }
                 if (regex.youtubePlaylist.test(args[0])) {
-                    const status = yield index_1.client.$youtube.getPlaylist(args[0])
+                    const status = yield index_1.client.$youtube
+                        .getPlaylist(args[0])
                         .then((playlist) => __awaiter(this, void 0, void 0, function* () {
-                        const msg = yield message.channel.send('🔄 Processing playlist...');
+                        const msg = yield message.channel.send("🔄 Processing playlist...");
                         const results = yield playlist.fetchVideos(0);
                         if (results.length === 0)
                             return false;
@@ -50,17 +59,24 @@ let default_1 = class {
                             if (results[i].private)
                                 continue;
                             const music = yield player.setMusicInfo(yield results[i].fetch(), member);
-                            player.addToQueue({ music, textChannel, voiceChannel, playlist: true });
+                            player.addToQueue({
+                                music,
+                                textChannel,
+                                voiceChannel,
+                                playlist: true,
+                            });
                         }
                         msg.edit(`✅ Successfully added **${playlist.title}** to the queue`);
                         return true;
                     }))
-                        .catch(() => { return false; });
+                        .catch(() => {
+                        return false;
+                    });
                     return status;
                 }
                 return false;
             }
-            const result = yield index_1.client.$youtube.getVideo(args.join(' '));
+            const result = yield index_1.client.$youtube.getVideo(args.join(" "));
             if (!result)
                 return false;
             const music = yield player.setMusicInfo(result, member);
@@ -71,9 +87,9 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: 'play',
-        description: 'Bored? How about playing some music from youtube? Be sure to be in a voice channel before running this command!',
-        category: 'Music',
-        usage: '<URL:string | query:string>'
+        name: "play",
+        description: "Bored? How about playing some music from youtube? Be sure to be in a voice channel before running this command!",
+        category: "Music",
+        usage: "<URL:string | query:string>",
     })
 ], default_1);

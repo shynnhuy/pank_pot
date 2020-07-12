@@ -21,10 +21,14 @@
     },
     "dependencies": {
         "@discordjs/opus": "^0.3.2",
+        "@types/giphy-api": "^2.0.2",
+        "axios": "^0.19.2",
         "discord-ytdl-core": "^4.0.0",
         "discord.js": "^12.2.0",
         "dotenv": "^8.2.0",
         "ffmpeg-static": "^4.2.5",
-        "popyt": "^4.1.0"
+        "giphy-api": "^2.0.1",
+        "popyt": "^4.1.0",
+        "random-puppy": "^1.1.0"
     }
 }
