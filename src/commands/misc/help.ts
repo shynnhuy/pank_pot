@@ -80,7 +80,7 @@ default class implements CommandExecutor {
       ...new Set(client.$commands.map((command) => command.info.category)),
     ];
 
-    embed.setTitle("-= :7190_linkpepehype: PẢNK COMMAND LIST :7190_linkpepehype: =-");
+    embed.setTitle("-= PẢNK COMMAND LIST =-");
     embed.setDescription(
       [
         `**Prefixes:** ${prefixes
