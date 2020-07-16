@@ -1,5 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import { MessageEmbed } from 'discord.js';
+import moment from "moment";
+import { Message } from 'discord.js';
 
 export class Utils {
 
@@ -49,6 +52,17 @@ export class Utils {
 
     truncateStr = (str: string, length: number) => {
         return (str.length > length) ? str.substr(0, length - 1) + '...' : str;
+    }
+
+    static generateEmbed(message: Message, title: string, description: string) {
+        return new MessageEmbed({
+            title: title,
+            description: description || "",
+            footer: {
+                icon_url: message.author.displayAvatarURL(),
+                text: message.author.tag
+            },
+        })
     }
 
 }

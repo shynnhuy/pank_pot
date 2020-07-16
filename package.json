@@ -30,6 +30,7 @@
         "ffmpeg-static": "^4.2.5",
         "giphy-api": "^2.0.1",
         "keyv": "^4.0.1",
+        "moment": "^2.27.0",
         "popyt": "^4.1.0",
         "random-puppy": "^1.1.0"
     }
