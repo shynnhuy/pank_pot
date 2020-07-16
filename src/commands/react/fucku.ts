@@ -30,7 +30,7 @@ default class implements CommandExecutor {
 
     const taggedUser = message.mentions.users.first();
     embed.setTitle(
-      `Djt coan mẹ mày ${taggedUser?.username}.`
+      `Djt cụ mày ${taggedUser?.username}.`
     );
     message.channel.send(embed);
 

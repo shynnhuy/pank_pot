@@ -7,7 +7,7 @@ import { Utils } from "../lib/Utils";
 @Command({
   name: "hello",
 })
-class implements CommandExecutor {
+default class implements CommandExecutor {
   execute = async (message: Message): Promise<boolean> => {
     // const embed = new MessageEmbed()
     //   .setColor("RANDOM")
