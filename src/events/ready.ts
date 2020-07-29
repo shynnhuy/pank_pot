@@ -12,7 +12,7 @@ default class implements EventListener {
                 name: 'Gái :)) [.help]',
                 type: 'PLAYING'
             },
-            status: "idle"
+            status: "dnd"
         });
 
         console.log(`${client.user!.tag} is now ready to be commanded !!!.`);
