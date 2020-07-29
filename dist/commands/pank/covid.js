@@ -46,7 +46,7 @@ let default_1 = class {
                     inline: true,
                 }, {
                     name: "Tổng số ca mắc",
-                    value: prettyPrintStat(cases),
+                    value: numeral_1.default(cases).format("0,0"),
                     inline: true,
                 }, { name: "\u200B", value: "\u200B" }, {
                     name: "Số ca khỏi trong ngày",
@@ -54,7 +54,7 @@ let default_1 = class {
                     inline: true,
                 }, {
                     name: "Tổng số ca khỏi",
-                    value: prettyPrintStat(recovered),
+                    value: numeral_1.default(recovered).format("0,0"),
                     inline: true,
                 }, { name: "\u200B", value: "\u200B" }, {
                     name: "Số ca chết trong ngày",
@@ -62,7 +62,7 @@ let default_1 = class {
                     inline: true,
                 }, {
                     name: "Tổng số ca chết",
-                    value: prettyPrintStat(deaths),
+                    value: numeral_1.default(deaths).format("0,0"),
                     inline: true,
                 });
                 message.channel.stopTyping();
@@ -83,7 +83,7 @@ let default_1 = class {
                         inline: true,
                     }, {
                         name: "Tổng số ca mắc",
-                        value: prettyPrintStat(cases),
+                        value: numeral_1.default(cases).format("0,0"),
                         inline: true,
                     }, { name: "\u200B", value: "\u200B" }, {
                         name: "Số ca khỏi trong ngày",
@@ -91,7 +91,7 @@ let default_1 = class {
                         inline: true,
                     }, {
                         name: "Tổng số ca khỏi",
-                        value: prettyPrintStat(recovered),
+                        value: numeral_1.default(recovered).format("0,0"),
                         inline: true,
                     }, { name: "\u200B", value: "\u200B" }, {
                         name: "Số ca chết trong ngày",
@@ -99,7 +99,7 @@ let default_1 = class {
                         inline: true,
                     }, {
                         name: "Tổng số ca chết",
-                        value: prettyPrintStat(deaths),
+                        value: numeral_1.default(deaths).format("0,0"),
                         inline: true,
                     });
                     message.channel.stopTyping();
@@ -121,11 +121,11 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: "covidd",
+        name: "covid",
         usage: "[countrycode: string]",
         category: "Pảnk Commands",
         description: `Kiểm tra tình hình Coronavirus trong nước và quốc tế.
-                Sử dụng countrycode như \`vn\`, \`usa\`, \`uk\`, \`bra\`, ... để xem tình hình covid nước đó.                
-                `,
+Sử dụng countrycode như \`vn\`, \`usa\`, \`uk\`, \`bra\`, ... để xem tình hình covid nước đó.\n              
+`,
     })
 ], default_1);
