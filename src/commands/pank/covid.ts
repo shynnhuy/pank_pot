@@ -50,7 +50,7 @@ default class implements CommandExecutor {
         },
         {
           name: "Tổng số ca mắc",
-          value: prettyPrintStat(cases),
+          value: numeral(cases).format("0,0"),
           inline: true,
         },
         { name: "\u200B", value: "\u200B" },
@@ -61,7 +61,7 @@ default class implements CommandExecutor {
         },
         {
           name: "Tổng số ca khỏi",
-          value: prettyPrintStat(recovered),
+          value: numeral(recovered).format("0,0"),
           inline: true,
         },
         { name: "\u200B", value: "\u200B" },
@@ -72,7 +72,7 @@ default class implements CommandExecutor {
         },
         {
           name: "Tổng số ca chết",
-          value: prettyPrintStat(deaths),
+          value: numeral(deaths).format("0,0"),
           inline: true,
         }
       );
