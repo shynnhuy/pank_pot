@@ -11,7 +11,7 @@ import { client } from "../..";
   category: "Pảnk Commands",
   description: `Kiểm tra tình hình Coronavirus trong nước và quốc tế.
 Sử dụng countrycode như \`vn\`, \`usa\`, \`uk\`, \`bra\`, ... để xem tình hình covid nước đó.\n              
-`, // A short description about your command (Optional)
+`,
 })
 default class implements CommandExecutor {
   execute = async (message: Message, args: string[]): Promise<boolean> => {
@@ -106,7 +106,7 @@ default class implements CommandExecutor {
             },
             {
               name: "Tổng số ca mắc",
-              value: prettyPrintStat(cases),
+              value: numeral(cases).format("0,0"),
               inline: true,
             },
             { name: "\u200B", value: "\u200B" },
@@ -117,7 +117,7 @@ default class implements CommandExecutor {
             },
             {
               name: "Tổng số ca khỏi",
-              value: prettyPrintStat(recovered),
+              value: numeral(recovered).format("0,0"),
               inline: true,
             },
             { name: "\u200B", value: "\u200B" },
@@ -128,7 +128,7 @@ default class implements CommandExecutor {
             },
             {
               name: "Tổng số ca chết",
-              value: prettyPrintStat(deaths),
+              value: numeral(deaths).format("0,0"),
               inline: true,
             }
           );
