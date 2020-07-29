@@ -27,7 +27,7 @@ default class implements CommandExecutor {
     const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setThumbnail(thumbnail)
-      .setFooter(`Requested by ${message.author.tag}`)
+      .setFooter(`Command provided by <@333876263859126274>`)
       .setTimestamp();
 
     if (args[0]) {
