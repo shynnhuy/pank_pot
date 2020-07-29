@@ -9,11 +9,11 @@ import { CommandExecutor } from "../../lib/commands/CommandExecutor";
   category: "Pảnk Commands",
   description: "Kiểm tra tình hình Coronavirus trong nước và quốc tế", // A short description about your command (Optional)
 })
-class implements CommandExecutor {
+default class implements CommandExecutor {
   execute = async (message: Message, args: string[]): Promise<boolean> => {
     const embed = new MessageEmbed()
       .setColor("RANDOM")
-      .setFooter(`Command provided by LoveBae#0186`)
+      .setFooter(`Command provided by <@LoveBae#0186>`)
       .setTimestamp();
 
     if (!args[0]) {
