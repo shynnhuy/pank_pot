@@ -23,11 +23,13 @@ default class implements CommandExecutor {
       format: "png",
       size: 2048,
     })!;
+    const devID = "333876263859126274";
+    const dev = await client.users.fetch(devID);
 
     const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setThumbnail(thumbnail)
-      .setFooter(`Command provided by <@333876263859126274>`)
+      .setFooter(`Requested by ${message.author.tag}`)
       .setTimestamp();
 
     if (args[0]) {
@@ -46,6 +48,7 @@ default class implements CommandExecutor {
       embed.setTitle(`${command.info.name.toUpperCase()} COMMAND`);
       embed.setDescription(
         [
+          `Command provided by ${dev}`,
           `${command.info.description || "No description has been set"}`,
           `Permissions required: ${
             permissionsRequired
@@ -83,6 +86,7 @@ default class implements CommandExecutor {
     embed.setTitle("-= PẢNK COMMAND LIST =-");
     embed.setDescription(
       [
+        `Command provided by ${dev}`,
         `**Prefixes:** ${prefixes
           .map((prefix) => `\`${prefix}\``)
           .join(" | ")}`,

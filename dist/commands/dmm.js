@@ -14,32 +14,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+const Command_1 = require("../lib/commands/Command");
 const discord_js_1 = require("discord.js");
-const Command_1 = require("../../lib/commands/Command");
-const giphy_1 = __importDefault(require("../../giphy"));
 let default_1 = class {
     constructor() {
-        this.execute = (message, args) => __awaiter(this, void 0, void 0, function* () {
+        this.execute = (message) => __awaiter(this, void 0, void 0, function* () {
             const embed = new discord_js_1.MessageEmbed()
                 .setColor("RANDOM")
-                .setFooter(`Requested by ${message.author.tag}`)
                 .setTimestamp();
-            const fetched = yield giphy_1.default.search({
-                q: "high 5",
-                rating: "g",
-            });
-            embed.setImage(fetched.data[Math.floor(Math.random() * fetched.data.length - 1)].images.original.url);
-            if (!message.mentions.users.first()) {
-                embed.setTitle(`${message.author.username} đập tay.`);
-                message.channel.send(embed);
-                return true;
-            }
-            const taggedUser = message.mentions.users.first();
-            embed.setTitle(`${message.author.username} đập tay ${taggedUser === null || taggedUser === void 0 ? void 0 : taggedUser.username}.`);
+            embed.setDescription(`Chửi coan mẹ mài nha ${message.author.username}.`);
             message.channel.send(embed);
             return true;
         });
@@ -47,10 +31,6 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: "highfive",
-        aliases: ["hi5", "high5", "25"],
-        category: "Pảnk Roleplay",
-        usage: "[@user]",
-        description: "Đập tay.",
+        name: "dmm",
     })
 ], default_1);

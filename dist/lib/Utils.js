@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Utils = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+const discord_js_1 = require("discord.js");
 class Utils {
     constructor() {
         this.findNested = (dir, pattern) => {
@@ -50,6 +51,16 @@ class Utils {
         this.truncateStr = (str, length) => {
             return (str.length > length) ? str.substr(0, length - 1) + '...' : str;
         };
+    }
+    static generateEmbed(message, title, description) {
+        return new discord_js_1.MessageEmbed({
+            title: title,
+            description: description || "",
+            footer: {
+                icon_url: message.author.displayAvatarURL(),
+                text: message.author.tag
+            },
+        });
     }
 }
 exports.Utils = Utils;

@@ -3,9 +3,10 @@ import axios from "axios";
 import { Command } from "../../lib/commands/Command";
 import { CommandExecutor } from "../../lib/commands/CommandExecutor";
 import numeral from "numeral";
+import { client } from "../..";
 
 @Command({
-  name: "covid",
+  name: "covidd",
   usage: "[countrycode: string]",
   category: "Pảnk Commands",
   description: `Kiểm tra tình hình Coronavirus trong nước và quốc tế.
@@ -14,10 +15,17 @@ import numeral from "numeral";
 })
 default class implements CommandExecutor {
   execute = async (message: Message, args: string[]): Promise<boolean> => {
+    const devID = "333876263859126274";
+    const dev = await client.users.fetch(devID);
     const embed = new MessageEmbed()
       .setColor("RANDOM")
-      .setFooter(`Command provided by <@333876263859126274>`)
-      .setTimestamp();
+      .setFooter(`Requested by ${message.author.tag}`)
+      .setDescription(`Command provided by ${dev}`)
+      .setTimestamp()
+      .setAuthor(
+        "Shynn Huy",
+        "https://scontent.fdad3-3.fna.fbcdn.net/v/t1.0-9/31928823_815116595350232_1392791657107161088_n.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=P3i0mYvyhxIAX90XFyV&_nc_ht=scontent.fdad3-3.fna&oh=dfce66d63a04917e85aa9d735956e1ed&oe=5F45654A"
+      );
 
     const prettyPrintStat = (stat: Number) =>
       stat ? `+${numeral(stat).format("0.0a")}` : "+0";
@@ -34,17 +42,39 @@ default class implements CommandExecutor {
         todayDeaths,
       } = fetched.data;
       embed.setTitle("Tình hình COVID-19 trên thế giới");
-      embed.setDescription(
-        `Số ca mắc trong ngày / Tổng số ca mắc  :   ${prettyPrintStat(
-          todayCases
-        )} / ${prettyPrintStat(cases)}
-         Số ca khỏi trong ngày / Tổng số ca khỏi :  ${prettyPrintStat(
-           recovered
-         )} / ${prettyPrintStat(todayRecovered)}
-         Số ca chết trong ngày / Tổng số ca chết :  ${prettyPrintStat(
-           deaths
-         )} / ${prettyPrintStat(todayDeaths)}
-        `
+      embed.addFields(
+        {
+          name: "Số ca mắc trong ngày",
+          value: prettyPrintStat(todayCases),
+          inline: true,
+        },
+        {
+          name: "Tổng số ca mắc",
+          value: prettyPrintStat(cases),
+          inline: true,
+        },
+        { name: "\u200B", value: "\u200B" },
+        {
+          name: "Số ca khỏi trong ngày",
+          value: prettyPrintStat(todayRecovered),
+          inline: true,
+        },
+        {
+          name: "Tổng số ca khỏi",
+          value: prettyPrintStat(recovered),
+          inline: true,
+        },
+        { name: "\u200B", value: "\u200B" },
+        {
+          name: "Số ca chết trong ngày",
+          value: prettyPrintStat(todayDeaths),
+          inline: true,
+        },
+        {
+          name: "Tổng số ca chết",
+          value: prettyPrintStat(deaths),
+          inline: true,
+        }
       );
       message.channel.stopTyping();
       message.channel.send(embed);
@@ -68,17 +98,39 @@ default class implements CommandExecutor {
         if (fetched.data) {
           embed.setTitle(`Tình hình COVID-19 ở ${country}`);
           embed.setImage(countryInfo.flag);
-          embed.setDescription(
-            `Số ca mắc trong ngày / Tổng số ca mắc  :   ${prettyPrintStat(
-              todayCases
-            )} / ${prettyPrintStat(cases)}
-             Số ca khỏi trong ngày / Tổng số ca khỏi:   ${prettyPrintStat(
-               recovered
-             )} / ${prettyPrintStat(todayRecovered)}
-             Số ca chết trong ngày / Tổng số ca chết:   ${prettyPrintStat(
-               deaths
-             )} / ${prettyPrintStat(todayDeaths)}
-            `
+          embed.addFields(
+            {
+              name: "Số ca mắc trong ngày",
+              value: prettyPrintStat(todayCases),
+              inline: true,
+            },
+            {
+              name: "Tổng số ca mắc",
+              value: prettyPrintStat(cases),
+              inline: true,
+            },
+            { name: "\u200B", value: "\u200B" },
+            {
+              name: "Số ca khỏi trong ngày",
+              value: prettyPrintStat(todayRecovered),
+              inline: true,
+            },
+            {
+              name: "Tổng số ca khỏi",
+              value: prettyPrintStat(recovered),
+              inline: true,
+            },
+            { name: "\u200B", value: "\u200B" },
+            {
+              name: "Số ca chết trong ngày",
+              value: prettyPrintStat(todayDeaths),
+              inline: true,
+            },
+            {
+              name: "Tổng số ca chết",
+              value: prettyPrintStat(deaths),
+              inline: true,
+            }
           );
           message.channel.stopTyping();
           message.channel.send(embed);

@@ -20,37 +20,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
 const Command_1 = require("../../lib/commands/Command");
-const giphy_1 = __importDefault(require("../../giphy"));
+const settings_1 = __importDefault(require("../../settings"));
+// import Keyv from "keyv";
 let default_1 = class {
     constructor() {
         this.execute = (message, args) => __awaiter(this, void 0, void 0, function* () {
+            // const keyv = new Keyv();
+            // keyv.set('prefix', ".");
             const embed = new discord_js_1.MessageEmbed()
                 .setColor("RANDOM")
                 .setFooter(`Requested by ${message.author.tag}`)
                 .setTimestamp();
-            const fetched = yield giphy_1.default.search({
-                q: "high 5",
-                rating: "g",
-            });
-            embed.setImage(fetched.data[Math.floor(Math.random() * fetched.data.length - 1)].images.original.url);
-            if (!message.mentions.users.first()) {
-                embed.setTitle(`${message.author.username} đập tay.`);
-                message.channel.send(embed);
-                return true;
-            }
-            const taggedUser = message.mentions.users.first();
-            embed.setTitle(`${message.author.username} đập tay ${taggedUser === null || taggedUser === void 0 ? void 0 : taggedUser.username}.`);
+            message.channel.startTyping();
+            embed.setTitle("Pảnk Prefix");
+            embed.setDescription([
+                `✅ Dùng \`${settings_1.default.config.prefixes}\` trước câu lệnh để sử dụng Pảnk ✅`,
+            ]);
             message.channel.send(embed);
+            message.channel.stopTyping();
             return true;
         });
     }
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: "highfive",
-        aliases: ["hi5", "high5", "25"],
-        category: "Pảnk Roleplay",
-        usage: "[@user]",
-        description: "Đập tay.",
+        name: "prefix",
+        category: "Pảnk Commands",
+        description: "Xem prefix của Pảnk.",
     })
 ], default_1);

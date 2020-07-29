@@ -30,6 +30,8 @@ let default_1 = class {
                 format: "png",
                 size: 2048,
             });
+            const devID = "333876263859126274";
+            const dev = yield index_1.client.users.fetch(devID);
             const embed = new discord_js_1.MessageEmbed()
                 .setColor("RANDOM")
                 .setThumbnail(thumbnail)
@@ -46,6 +48,7 @@ let default_1 = class {
                     command.info.permissions.length > 0;
                 embed.setTitle(`${command.info.name.toUpperCase()} COMMAND`);
                 embed.setDescription([
+                    `Command provided by ${dev}`,
                     `${command.info.description || "No description has been set"}`,
                     `Permissions required: ${permissionsRequired
                         ? `\`${command.info.permissions.join(" | ")}\``
@@ -63,8 +66,9 @@ let default_1 = class {
             const categories = [
                 ...new Set(index_1.client.$commands.map((command) => command.info.category)),
             ];
-            embed.setTitle("-= :7190_linkpepehype: PẢNK COMMAND LIST :7190_linkpepehype: =-");
+            embed.setTitle("-= PẢNK COMMAND LIST =-");
             embed.setDescription([
+                `Command provided by ${dev}`,
                 `**Prefixes:** ${prefixes
                     .map((prefix) => `\`${prefix}\``)
                     .join(" | ")}`,

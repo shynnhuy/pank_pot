@@ -26,7 +26,7 @@ let default_1 = class {
                     name: 'Gái :)) [.help]',
                     type: 'PLAYING'
                 },
-                status: "online"
+                status: "dnd"
             });
             console.log(`${index_1.client.user.tag} is now ready to be commanded !!!.`);
         });

@@ -29,17 +29,17 @@ let default_1 = class {
                 .setFooter(`Requested by ${message.author.tag}`)
                 .setTimestamp();
             const fetched = yield giphy_1.default.search({
-                q: "high 5",
+                q: "fu",
                 rating: "g",
             });
             embed.setImage(fetched.data[Math.floor(Math.random() * fetched.data.length - 1)].images.original.url);
             if (!message.mentions.users.first()) {
-                embed.setTitle(`${message.author.username} đập tay.`);
+                embed.setTitle(`${message.author.username} giơ ngón giữa.`);
                 message.channel.send(embed);
                 return true;
             }
             const taggedUser = message.mentions.users.first();
-            embed.setTitle(`${message.author.username} đập tay ${taggedUser === null || taggedUser === void 0 ? void 0 : taggedUser.username}.`);
+            embed.setTitle(`Djt cụ mày ${taggedUser === null || taggedUser === void 0 ? void 0 : taggedUser.username}.`);
             message.channel.send(embed);
             return true;
         });
@@ -47,10 +47,10 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: "highfive",
-        aliases: ["hi5", "high5", "25"],
+        name: "fucku",
+        aliases: ["fu"],
         category: "Pảnk Roleplay",
         usage: "[@user]",
-        description: "Đập tay.",
+        description: "Đjt mej mayf ♥.",
     })
 ], default_1);
