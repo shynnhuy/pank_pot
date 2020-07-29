@@ -6,12 +6,12 @@ import numeral from "numeral";
 import { client } from "../..";
 
 @Command({
-  name: "covidd",
+  name: "covid",
   usage: "[countrycode: string]",
   category: "Pảnk Commands",
   description: `Kiểm tra tình hình Coronavirus trong nước và quốc tế.
-                Sử dụng countrycode như \`vn\`, \`usa\`, \`uk\`, \`bra\`, ... để xem tình hình covid nước đó.                
-                `, // A short description about your command (Optional)
+Sử dụng countrycode như \`vn\`, \`usa\`, \`uk\`, \`bra\`, ... để xem tình hình covid nước đó.\n              
+`, // A short description about your command (Optional)
 })
 default class implements CommandExecutor {
   execute = async (message: Message, args: string[]): Promise<boolean> => {
