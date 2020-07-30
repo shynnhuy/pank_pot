@@ -32,9 +32,9 @@ let default_1 = class {
             const durationBar = player.durationBar(queue);
             const embed = new discord_js_1.MessageEmbed()
                 .setColor('RANDOM')
-                .setTitle('Successfully Resumed')
+                .setTitle('Tiếp tục phát')
                 .setThumbnail(current.thumbnail)
-                .setDescription(`▶️ [${current.title}](${current.url}) has been resumed\n${durationBar}`)
+                .setDescription(`▶️ [${current.title}](${current.url}) đã được phát tiếp\n${durationBar}`)
                 .setFooter(`Requested by ${message.author.tag}`)
                 .setTimestamp();
             message.channel.send(embed);

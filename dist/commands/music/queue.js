@@ -47,15 +47,15 @@ let default_1 = class {
         this.setEmbed = (author, embed, guild, currentPage, pages) => __awaiter(this, void 0, void 0, function* () {
             const { queue, queue: { current, upcoming, loop } } = guild;
             pages = pages ? pages : yield this.setupPages(queue);
-            const title = upcoming.length > 0 ? `Upcoming - Next ${upcoming.length}` : 'Currently Playing';
+            const title = upcoming.length > 0 ? `Bài hát tiếp theo: ${upcoming.length}` : 'Đang phát';
             const description = [
-                `Looping queue: ${String(loop)[0].toUpperCase() + String(loop).substring(1)}`
+                `Phát lại danh sách: ${String(loop)[0].toUpperCase() + String(loop).substring(1)}`
             ];
             const currentListNum = (currentPage * this.itemsPerPage) - this.itemsPerPage;
             if (pages.length > 0) {
                 description.push(`${pages[currentPage - 1].map((music, index) => `**[${currentListNum + (index + 1)}]:** [${music.title}](${music.url})`).join('\n')}`);
             }
-            description.push(`🎵 **Currently Playing:** [${current === null || current === void 0 ? void 0 : current.title}](${current === null || current === void 0 ? void 0 : current.url})`);
+            description.push(`🎵 **Đang phát:** [${current === null || current === void 0 ? void 0 : current.title}](${current === null || current === void 0 ? void 0 : current.url})`);
             embed
                 .setTitle(title)
                 .setThumbnail(current.thumbnail)

@@ -28,7 +28,7 @@ let default_1 = class {
                 return false;
             const embed = new discord_js_1.MessageEmbed()
                 .setColor('RANDOM')
-                .setTitle('Now Playing:')
+                .setTitle('Đang phát:')
                 .setThumbnail(queue.current.thumbnail)
                 .setFooter(`Requested by ${message.author.tag}`)
                 .setTimestamp();

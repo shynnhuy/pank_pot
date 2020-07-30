@@ -36,7 +36,7 @@ let default_1 = class {
             switch (type) {
                 case 'music': {
                     if (bool === current.loop) {
-                        message.channel.send(`⚠️ ${message.author}, music loop is already set to ${type}`);
+                        message.channel.send(`⚠️ ${message.author}, phát lại đang có giá trị ${type}`);
                         return true;
                     }
                     current.loop = bool;
@@ -44,14 +44,14 @@ let default_1 = class {
                 }
                 case 'queue': {
                     if (bool === queue.loop) {
-                        message.channel.send(`⚠️ ${message.author}, queue loop is already set to ${type}`);
+                        message.channel.send(`⚠️ ${message.author}, đã chuyển phát lại thành ${type}`);
                         return true;
                     }
                     queue.loop = bool;
                     break;
                 }
             }
-            message.channel.send(`🔃 The current \`${type}\` loop has been set to \`${bool}\``);
+            message.channel.send(`🔃 Kiểu phát lại hiện tại \`${type}\` đã đổi thành \`${bool}\``);
             return true;
         });
     }

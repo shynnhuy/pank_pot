@@ -25,7 +25,7 @@ let default_1 = class {
             const { queue } = oldState.guild;
             if (((_a = oldState.member) === null || _a === void 0 ? void 0 : _a.user.bot) && oldState.member.user === index_1.client.user) {
                 if (newState.channel === null) {
-                    (_b = queue.textChannel) === null || _b === void 0 ? void 0 : _b.send('🎵 Music playback has ended');
+                    (_b = queue.textChannel) === null || _b === void 0 ? void 0 : _b.send('🎵 Đã dừng phát nhạc 💔💔💔');
                     oldState.guild.queue.upcoming.length = 0;
                     return oldState.guild.queue = Object.assign({}, DefaultQueue_1.defaultQueue);
                 }

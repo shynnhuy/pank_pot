@@ -51,7 +51,7 @@ let default_1 = class {
                     const status = yield index_1.client.$youtube
                         .getPlaylist(args[0])
                         .then((playlist) => __awaiter(this, void 0, void 0, function* () {
-                        const msg = yield message.channel.send("🔄 Processing playlist...");
+                        const msg = yield message.channel.send("🔄 Đang tải playlist...");
                         const results = yield playlist.fetchVideos(0);
                         if (results.length === 0)
                             return false;
@@ -66,7 +66,7 @@ let default_1 = class {
                                 playlist: true,
                             });
                         }
-                        msg.edit(`✅ Successfully added **${playlist.title}** to the queue`);
+                        msg.edit(`✅ Đã thêm bài hát **${playlist.title}** vào danh sách phát`);
                         return true;
                     }))
                         .catch(() => {
@@ -88,7 +88,7 @@ let default_1 = class {
 default_1 = __decorate([
     Command_1.Command({
         name: "play",
-        description: "Bored? How about playing some music from youtube? Be sure to be in a voice channel before running this command!",
+        description: "Phát 1 bài hát từ youtube",
         category: "Music",
         usage: "<URL:string | query:string>",
     })
