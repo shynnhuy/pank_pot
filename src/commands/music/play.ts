@@ -6,7 +6,7 @@ import { CommandExecutor } from "../../lib/commands/CommandExecutor";
 @Command({
   name: "play",
   description:
-    "Bored? How about playing some music from youtube? Be sure to be in a voice channel before running this command!",
+    "Phát 1 bài hát từ youtube",
   category: "Music",
   usage: "<URL:string | query:string>",
 })
@@ -45,7 +45,7 @@ default class implements CommandExecutor {
         const status = await client.$youtube
           .getPlaylist(args[0])
           .then(async (playlist) => {
-            const msg = await message.channel.send("🔄 Processing playlist...");
+            const msg = await message.channel.send("🔄 Đang tải playlist...");
 
             const results = await playlist.fetchVideos(0);
             if (results.length === 0) return false;
@@ -65,7 +65,7 @@ default class implements CommandExecutor {
             }
 
             msg.edit(
-              `✅ Successfully added **${playlist.title}** to the queue`
+              `✅ Đã thêm bài hát **${playlist.title}** vào danh sách phát`
             );
             return true;
           })

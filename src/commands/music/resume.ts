@@ -23,9 +23,9 @@ default class implements CommandExecutor {
 
         const embed = new MessageEmbed()
             .setColor('RANDOM')
-            .setTitle('Successfully Resumed')
+            .setTitle('Tiếp tục phát')
             .setThumbnail(current.thumbnail)
-            .setDescription(`▶️ [${current.title}](${current.url}) has been resumed\n${durationBar}`)
+            .setDescription(`▶️ [${current.title}](${current.url}) đã được phát tiếp\n${durationBar}`)
             .setFooter(`Requested by ${message.author.tag}`)
             .setTimestamp()
 

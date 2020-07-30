@@ -21,7 +21,7 @@ default class implements CommandExecutor {
 
         const embed = new MessageEmbed()
             .setColor('RANDOM')
-            .setTitle('Now Playing:')
+            .setTitle('Đang phát:')
             .setThumbnail(queue.current.thumbnail)
             .setFooter(`Requested by ${message.author.tag}`)
             .setTimestamp();

@@ -2,11 +2,9 @@ import { Message, TextChannel, MessageEmbed } from 'discord.js';
 import { client } from '../../index';
 import { Command } from '../../lib/commands/Command';
 import { CommandExecutor } from '../../lib/commands/CommandExecutor';
-import { User } from 'discord.js';
-import { MessageReaction } from 'discord.js';
 
 @Command({
-    name: 'searchh',
+    name: 'search',
     description: 'Tìm bài hát từ youtube.',
     category: 'Music',
     usage: '<URL:string | query:string>',

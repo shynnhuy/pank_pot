@@ -24,7 +24,7 @@ default class implements CommandExecutor {
 
         const embed = new MessageEmbed()
             .setColor('RANDOM')
-            .setTitle('Successfully Paused')
+            .setTitle('Đã tạm dừng phát nhạc')
             .setThumbnail(current.thumbnail)
             .setDescription(`⏸️ [${current.title}](${current.url}) đã dừng\n${durationBar}`)
             .setFooter(`Requested by ${message.author.tag}`)

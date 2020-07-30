@@ -27,7 +27,7 @@ default class implements CommandExecutor {
         switch (type) {
             case 'music': {
                 if (bool === current.loop) {
-                    message.channel.send(`⚠️ ${message.author}, music loop is already set to ${type}`);
+                    message.channel.send(`⚠️ ${message.author}, phát lại đang có giá trị ${type}`);
                     return true;
                 }
                 current.loop = bool;
@@ -35,7 +35,7 @@ default class implements CommandExecutor {
             }
             case 'queue': {
                 if (bool === queue.loop) {
-                    message.channel.send(`⚠️ ${message.author}, queue loop is already set to ${type}`);
+                    message.channel.send(`⚠️ ${message.author}, đã chuyển phát lại thành ${type}`);
                     return true;
                 }
                 queue.loop = bool;
@@ -43,7 +43,7 @@ default class implements CommandExecutor {
             }
         }
 
-        message.channel.send(`🔃 The current \`${type}\` loop has been set to \`${bool}\``);
+        message.channel.send(`🔃 Kiểu phát lại hiện tại \`${type}\` đã đổi thành \`${bool}\``);
         return true;
     }
 

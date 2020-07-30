@@ -53,10 +53,10 @@ default class implements CommandExecutor {
         const { queue, queue: { current, upcoming, loop } } = guild;
         pages = pages ? pages : await this.setupPages(queue);
 
-        const title = upcoming.length > 0 ? `Upcoming - Next ${upcoming.length}` : 'Currently Playing';
+        const title = upcoming.length > 0 ? `Bài hát tiếp theo: ${upcoming.length}` : 'Đang phát';
 
         const description: string[] = [
-            `Looping queue: ${String(loop)[0].toUpperCase() + String(loop).substring(1)}`
+            `Phát lại danh sách: ${String(loop)[0].toUpperCase() + String(loop).substring(1)}`
         ];
 
         const currentListNum = (currentPage * this.itemsPerPage) - this.itemsPerPage;
@@ -66,7 +66,7 @@ default class implements CommandExecutor {
                 `**[${currentListNum + (index + 1)}]:** [${music.title}](${music.url})`
             ).join('\n')}`);
         }
-        description.push(`🎵 **Currently Playing:** [${current?.title}](${current?.url})`);
+        description.push(`🎵 **Đang phát:** [${current?.title}](${current?.url})`);
 
         embed
             .setTitle(title)

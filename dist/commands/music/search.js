@@ -101,7 +101,7 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: 'searchh',
+        name: 'search',
         description: 'Tìm bài hát từ youtube.',
         category: 'Music',
         usage: '<URL:string | query:string>',

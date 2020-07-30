@@ -14,7 +14,7 @@ default class implements EventListener {
         if (oldState.member?.user.bot && oldState.member.user === client.user) {
 
             if (newState.channel === null) {
-                queue.textChannel?.send('🎵 Music playback has ended');
+                queue.textChannel?.send('🎵 Đã dừng phát nhạc 💔💔💔');
                 oldState.guild.queue.upcoming.length = 0;
                 return oldState.guild.queue = { ...defaultQueue };
             }
