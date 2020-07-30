@@ -32,7 +32,7 @@ let default_1 = class {
             const member = message.member;
             const textChannel = message.channel;
             const voiceChannel = message.member.voice.channel;
-            const results = (yield index_1.client.$youtube.searchVideos(args.join(' '))).results.slice(0, 10);
+            const results = (yield index_1.client.$youtube.searchVideos(args.join(' '))).results.slice(0, 5);
             if (results.length === 0)
                 return false;
             const thumbnail = (_c = index_1.client.user) === null || _c === void 0 ? void 0 : _c.displayAvatarURL({
@@ -42,29 +42,58 @@ let default_1 = class {
             });
             const description = [
                 results.map((video, index) => `**${index + 1} -** ${video.title}`).join('\n'),
-                '🎵 Select a music from above between **1** and **10** within **10 seconds**'
+                '🎵 Chọn bài hát từ **1** đến **5** trong vòng **1 phút**',
             ].join('\n\n');
             const embed = new discord_js_1.MessageEmbed()
                 .setColor('RANDOM')
-                .setTitle('-= Music Search =-')
+                .setTitle('-= Tìm kiếm bài hát =-')
                 .setThumbnail(thumbnail)
                 .setDescription(description);
             const msg = yield message.channel.send(embed);
-            message.channel.awaitMessages(m => m.content > 0 && m.content < 11, {
+            // const react = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣'];
+            yield msg.react('1️⃣');
+            yield msg.react('2️⃣');
+            yield msg.react('3️⃣');
+            yield msg.react('4️⃣');
+            yield msg.react('5️⃣');
+            yield msg.react('❌');
+            function play(videoIndex) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    const music = yield player.setMusicInfo(yield results[videoIndex].fetch(), member);
+                    player.addToQueue({ music, textChannel, voiceChannel, playlist: false });
+                });
+            }
+            yield msg.awaitReactions((r) => r.emoji.name === '1️⃣' ||
+                r.emoji.name === '2️⃣' ||
+                r.emoji.name === '3️⃣' ||
+                r.emoji.name === '4️⃣' ||
+                r.emoji.name === '5️⃣', {
                 max: 1,
-                time: this.selectionTime * 1000,
-                errors: ['time']
-            }).then((response) => __awaiter(this, void 0, void 0, function* () {
-                const videoIndex = parseInt(response.first().content) - 1;
-                const music = yield player.setMusicInfo(yield results[videoIndex].fetch(), member);
-                player.addToQueue({ music, textChannel, voiceChannel, playlist: false });
+                time: this.selectionTime * 6000,
+                errors: ['time'],
+            })
+                .then((response) => __awaiter(this, void 0, void 0, function* () {
+                // console.log("RESPONSE = " + response.toJSON())
+                const reaction = response.first();
+                // console.log("Reaction = " + reaction?.emoji.name);
+                function play(videoIndex) {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        const music = yield player.setMusicInfo(yield results[videoIndex].fetch(), member);
+                        player.addToQueue({ music, textChannel, voiceChannel, playlist: false });
+                    });
+                }
+                const res = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣'].filter((r) => r === (reaction === null || reaction === void 0 ? void 0 : reaction.emoji.name));
+                // console.log("RES = " + res);
+                const idx = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣'].indexOf(res[0]);
+                // console.log(idx);
+                play(idx);
                 msg.delete();
-                response.first().delete();
-            })).catch((err) => {
+            }))
+                .catch((err) => {
                 if (err)
                     undefined;
                 msg.delete();
-                return message.reply('⚠ You have exceeded the 10 seconds selection time!');
+                return message.reply('⚠ Đã quá 1 phút để chọn bài hát!');
             });
             return true;
         });
@@ -72,9 +101,9 @@ let default_1 = class {
 };
 default_1 = __decorate([
     Command_1.Command({
-        name: 'search',
+        name: 'searchh',
         description: 'Tìm bài hát từ youtube.',
         category: 'Music',
-        usage: '<URL:string | query:string>'
+        usage: '<URL:string | query:string>',
     })
 ], default_1);

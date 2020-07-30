@@ -36,7 +36,7 @@ let default_1 = class {
             if (isNaN(amount) || amount < 0 || amount > 100)
                 return false;
             const fetched = yield message.channel.messages.fetch({ limit: amount });
-            console.log(fetched.size + " messages found, deleting...");
+            // console.log(fetched.size + " messages found, deleting...");
             message.channel
                 .bulkDelete(fetched)
                 .catch((err) => message.channel.send(`Error: ${err}`));

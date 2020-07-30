@@ -31,7 +31,7 @@ default class implements CommandExecutor {
 
     if (isNaN(amount) || amount < 0 || amount > 100) return false;
     const fetched = await message.channel.messages.fetch({ limit: amount });
-    console.log(fetched.size + " messages found, deleting...");
+    // console.log(fetched.size + " messages found, deleting...");
 
     message.channel
       .bulkDelete(fetched)
