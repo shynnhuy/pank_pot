@@ -70,11 +70,12 @@ class MusicPlayer {
             const position = addedVideoIndex == 0 ? 'Tiếp theo' : addedVideoIndex + 1;
             this.embed
                 .setColor('RANDOM')
-                .setTitle('Đã thêm bài hát vào danh sách phát')
+                .setTitle('Đã thêm bài hát vào danh sách phát 🎧🎧🎧')
                 .setDescription(`\`\`\`${music.title}\`\`\``)
-                .setThumbnail(music.thumbnail)
+                .setImage(music.thumbnail)
                 .addField('Vị trí:', position, true)
                 .addField('Requested By:', music.requester.user.tag, true)
+                .setFooter(`Command provided by LoveBae#0186`)
                 .setTimestamp();
             textChannel.send(this.embed);
             this.embed.spliceFields(0, this.embed.fields.length);
@@ -133,7 +134,7 @@ class MusicPlayer {
             .setColor('RANDOM')
             .setTitle('Đang phát:')
             .setDescription(`[${queue.current.title}](${queue.current.url})`)
-            .setThumbnail(queue.current.thumbnail)
+            .setImage(queue.current.thumbnail)
             .addField('Thời lượng:', `${__1.client.$utils.formatSeconds(queue.current.duration)}`, true)
             .addField('Requested By:', queue.current.requester.user.tag, true)
             .setTimestamp();
