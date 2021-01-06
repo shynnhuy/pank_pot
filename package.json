@@ -24,7 +24,7 @@
         "@types/giphy-api": "^2.0.2",
         "@types/keyv": "^3.1.1",
         "@types/numeral": "0.0.28",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "discord-ytdl-core": "^4.0.0",
         "discord.js": "^12.2.0",
         "dotenv": "^8.2.0",
